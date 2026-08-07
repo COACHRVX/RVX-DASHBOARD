@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Athlete Performance Dashboard</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="shell">
+<header class="topbar">
+  <div class="brand"><img class="brand-logo" src="assets/rvx-logo.png" alt="RVX Performance logo"><div class="brand-copy"><b id="orgName">Performance</b><br>Data • Development</div></div>
+  <div class="title"><h1 id="reportTitle">Athlete Testing Report</h1><p>Performance • Data • Development</p></div>
+  <div class="top-actions"><div class="date-chip"><small>Test date range</small><span id="dateRange">—</span></div><button class="sheet-button" id="openSettings"><span class="status-dot" id="statusDot"></span><span id="connectionText">Connect Google Sheet</span></button></div>
+</header>
+<section class="grid-main">
+  <article class="card"><div class="card-heading">Athlete Profile</div><div class="profile-body" id="profilePanel"></div></article>
+  <article class="card"><div class="card-heading"><span>Performance Summary</span><select class="athlete-select" id="athleteSelect"></select></div><div class="metrics-wrap"><table class="metrics-table"><thead><tr><th>Test</th><th>Best Result</th><th>Unit</th><th>Change</th><th>% Change</th><th>Status</th><th>Percentile</th></tr></thead><tbody id="metricsBody"></tbody></table></div></article>
+  <article class="card score-card"><div class="card-heading">Athletic Performance Score</div><div class="score-body" id="scorePanel"></div></article>
+</section>
+<section class="lower-grid">
+  <article class="card"><div class="card-heading">Testing Sessions</div><div class="section-body" id="sessionsPanel"></div></article>
+  <article class="card"><div class="card-heading">Auto Recommendations</div><div class="section-body" id="recommendationsPanel"></div></article>
+  <article class="card"><div class="card-heading">Priority Focus Areas</div><div class="section-body" id="focusPanel"></div></article>
+  <article class="card"><div class="card-heading">RVX Program & Next Steps</div><div class="section-body" id="stepsPanel"></div></article>
+</section>
+<section class="card trend-card"><div class="card-heading"><span>Performance Trend Over Time</span><div class="trend-controls"><span id="dataSourceLabel" style="font-size:10px;color:#aaa">Demo data</span></div></div><div class="charts-grid" id="chartsGrid"></div></section>
+<footer class="footer"><span><b>RVX</b> Performance</span><span>Measure. Train. <b>Improve.</b> Repeat.</span><span id="generatedDate"></span></footer>
+</div>
+<div class="modal-backdrop" id="settingsModal"><div class="modal">
+  <h2>Google Sheets Integration</h2>
+  <p>Paste a public or “published to web” Google Sheet URL or Sheet ID. The dashboard reads each section from its matching tab using Google’s visualization endpoint. No API key is required for a public sheet.</p>
+  <div class="field"><label>Google Sheet URL or ID</label><input id="sheetIdInput" placeholder="https://docs.google.com/spreadsheets/d/… or Sheet ID"></div>
+  <div class="mapping"><code>Athlete_Profile</code><code>Testing_Sessions</code><code>Performance_Metrics</code><code>Normative_Data</code><code>Recommendation_Output</code><code>Recommendation Matrix</code><code>Recommendation_Lookup</code><code>RVX App Programs</code><code>Status Logic</code><code>Coach_Recommendations</code><code>Areas_of_Focus</code><code>Next_Steps</code><code>Dashboard_Settings</code><code>Dropdown_Lists</code><code>Dashboard Lookup Guide</code></div>
+  <div class="error" id="connectionError"></div>
+  <div class="modal-actions"><button class="btn" id="demoButton">Use Demo Data</button><button class="btn" id="closeSettings">Cancel</button><button class="btn primary" id="connectButton">Connect & Refresh</button></div>
+</div></div>
+<script src="js/app.js" defer></script>
+</body></html>
